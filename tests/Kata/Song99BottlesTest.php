@@ -27,7 +27,7 @@ class Song99BottlesTest extends TestCase
     public function test98BottlesVerse(): void
     {
         $expected = ["98 bottles of beer on the wall, 98 bottles of beer.", "Take one down and pass it around, 97 bottles of beer on the wall."];
-        $actual = $this->song99Bottles->verse(99);
+        $actual = $this->song99Bottles->verse(98);
 
         $this->assertSame($expected, $actual);
     }
