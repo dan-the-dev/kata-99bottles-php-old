@@ -12,8 +12,8 @@ class SongVerse
 
     public function __construct(string $firstLine, string $secondLine)
     {
-        $this->firstLine = $firstLine;
-        $this->secondLine = $secondLine;
+        $this->firstLine = lcfirst($firstLine);
+        $this->secondLine = lcfirst($secondLine);
     }
 
     /**
