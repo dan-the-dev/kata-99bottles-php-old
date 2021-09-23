@@ -10,11 +10,20 @@ class Song99Bottles
         if ($remainingBottles === 0) {
             $remainingBottles = 'no more';
         }
-        $currentBottlesNoun = $currentBottles === 1 ? 'bottle' : 'bottles';
-        $remainingBottlesNoun = $remainingBottles === 1 ? 'bottle' : 'bottles';
+        $currentBottlesNoun = $this->calculateBottleNoun($currentBottles);
+        $remainingBottlesNoun = $this->calculateBottleNoun($remainingBottles);
         return new SongVerse(
             "$currentBottles $currentBottlesNoun of beer on the wall, $currentBottles $currentBottlesNoun of beer.",
             "Take one down and pass it around, $remainingBottles $remainingBottlesNoun of beer on the wall."
         );
+    }
+
+    /**
+     * @param $remainingBottles
+     * @return string
+     */
+    private function calculateBottleNoun($remainingBottles): string
+    {
+        return $remainingBottles === 1 ? 'bottle' : 'bottles';
     }
 }

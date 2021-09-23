@@ -56,7 +56,7 @@ class Song99BottlesTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    public function test1BottlesVerse(): void
+    public function test1BottleVerse(): void
     {
         $expected = new SongVerse("1 bottle of beer on the wall, 1 bottle of beer.", "Take one down and pass it around, no more bottles of beer on the wall.");
         $actual = $this->song99Bottles->verse(1);
