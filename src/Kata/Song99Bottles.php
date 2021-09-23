@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-class Index
+class Song99Bottles
 {
     public function handle(): bool
     {

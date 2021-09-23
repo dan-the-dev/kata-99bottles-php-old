@@ -3,13 +3,17 @@
 namespace Kata;
 
 use PHPUnit\Framework\TestCase;
-use Kata\Index;
 
-class IndexTest extends TestCase
+class Song99BottlesTest extends TestCase
 {
+    /**
+     * @var Song99Bottles $song99Bottles
+     */
+    private $song99Bottles;
+
     protected function setUp(): void
     {
-        $this->index = new Index();
+        $this->song99Bottles = new Song99Bottles();
     }
 
     public function testShallPass(): void
@@ -19,6 +23,6 @@ class IndexTest extends TestCase
 
     public function testHandleReturnTrue(): void
     {
-        $this->assertEquals(true, $this->index->handle());
+        $this->assertEquals(true, $this->song99Bottles->handle());
     }
 }
