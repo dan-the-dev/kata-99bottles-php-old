@@ -16,13 +16,5 @@ class Song99BottlesTest extends TestCase
         $this->song99Bottles = new Song99Bottles();
     }
 
-    public function testShallPass(): void
-    {
-        $this->assertEquals(1, 1);
-    }
 
-    public function testHandleReturnTrue(): void
-    {
-        $this->assertEquals(true, $this->song99Bottles->handle());
-    }
 }
