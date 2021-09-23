@@ -50,7 +50,7 @@ Run tests: `vendor/phpunit/phpunit/phpunit tests`
 - [x] 98 bottles verse
 - [x] 4 bottles verse
 - [x] 3 bottles verse
-- [ ] **2 bottles verse**
-- [ ] 1 bottle verse
+- [x] 2 bottles verse
+- [ ] **1 bottle verse**
 - [ ] 0 bottles verse
 - [ ] Full song lyrics

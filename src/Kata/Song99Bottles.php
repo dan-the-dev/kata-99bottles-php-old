@@ -7,10 +7,14 @@ class Song99Bottles
     public function verse(int $currentBottles): SongVerse
     {
         $remainingBottles = $currentBottles - 1;
-        $bottleNoun = $remainingBottles === 1 ? 'bottle' : 'bottles';
+        if ($remainingBottles === 0) {
+            $remainingBottles = 'no more';
+        }
+        $currentBottlesNoun = $currentBottles === 1 ? 'bottle' : 'bottles';
+        $remainingBottlesNoun = $remainingBottles === 1 ? 'bottle' : 'bottles';
         return new SongVerse(
-            "$currentBottles bottles of beer on the wall, $currentBottles bottles of beer.",
-            "Take one down and pass it around, {$remainingBottles} {$bottleNoun} of beer on the wall."
+            "$currentBottles $currentBottlesNoun of beer on the wall, $currentBottles $currentBottlesNoun of beer.",
+            "Take one down and pass it around, $remainingBottles $remainingBottlesNoun of beer on the wall."
         );
     }
 }
