@@ -43,3 +43,14 @@ Example
 # Tests
 
 Run tests: `vendor/phpunit/phpunit/phpunit tests`
+
+## Test List
+
+- [ ] 99 bottles verse
+- [ ] 98 bottles verse
+- [ ] 4 bottles verse
+- [ ] 3 bottles verse
+- [ ] 2 bottles verse
+- [ ] 1 bottle verse
+- [ ] 0 bottles verse
+- [ ] Full song lyrics
