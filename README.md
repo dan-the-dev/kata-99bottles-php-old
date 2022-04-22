@@ -1,6 +1,7 @@
-# KATA SKELETON DANIELESAULSCILLIA - PHP VERSION
+# KATA SKELETON DAN THE DEV - PHP VERSION
 ## Instructions
-Complete the function that returns the lyrics for the song 99 Bottles of Beer as an array of strings: each line should be a separate element - see the example at the bottom.
+Complete the function that returns the lyrics for the song 99 Bottles of Beer as an array of strings: 
+each line should be a separate element - see the example at the bottom.
 
 ### Lyrics
 99 bottles of beer on the wall, 99 bottles of beer.

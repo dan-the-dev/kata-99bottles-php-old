@@ -4,8 +4,8 @@ namespace Kata;
 
 class Song99Bottles
 {
-    public function handle(): bool
+    public function getLyrics(): string
     {
-        return true;
+        return '99 bottles of beer on the wall, 99 bottles of beer.';
     }
 }
