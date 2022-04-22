@@ -4,9 +4,9 @@ namespace Kata;
 
 class Song99Bottles
 {
-    public function getVerseFirstLine(): string
+    public function getVerseFirstLine(int $numberOfBottles): string
     {
-        return '99 bottles of beer on the wall, 99 bottles of beer.';
+        return "$numberOfBottles bottles of beer on the wall, $numberOfBottles bottles of beer.";
     }
 
     public function getVerseSecondLine(): string
@@ -17,7 +17,7 @@ class Song99Bottles
     public function getVerse(): array
     {
         return [
-            $this->getVerseFirstLine(),
+            $this->getVerseFirstLine(99),
             $this->getVerseSecondLine(),
         ];
     }
