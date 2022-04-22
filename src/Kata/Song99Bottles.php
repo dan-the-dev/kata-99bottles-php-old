@@ -6,6 +6,9 @@ class Song99Bottles
 {
     public function getVerseFirstLine(int $numberOfBottles): string
     {
+        if ($numberOfBottles === 0){
+            return 'No more bottles of beer on the wall, no more bottles of beer.';
+        }
         $noun = $numberOfBottles === 1 ? 'bottle' : 'bottles';
         return "{$numberOfBottles} {$noun} of beer on the wall, {$numberOfBottles} {$noun} of beer.";
     }

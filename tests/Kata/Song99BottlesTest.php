@@ -53,6 +53,14 @@ class Song99BottlesTest extends TestCase
         );
     }
 
+    public function testZeroBottlesVerseFirstLine(): void
+    {
+        $this->assertEquals(
+            'No more bottles of beer on the wall, no more bottles of beer.',
+            $this->song99Bottles->getVerseFirstLine(0)
+        );
+    }
+
     public function test99BottlesVerseSecondLine(): void
     {
         $this->assertEquals(
