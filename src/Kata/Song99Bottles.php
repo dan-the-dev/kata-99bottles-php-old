@@ -13,13 +13,12 @@ class Song99Bottles
 
     public function getVerseSecondLine(int $numberOfBottles): string
     {
-        if ($numberOfBottles === 0){
-            return 'Go to the store and buy some more, 99 bottles of beer on the wall.';
-        }
+        $intro = $numberOfBottles === 0 ? 'Go to the store and buy some more' : 'Take one down and pass it around';
         $numberOfBottles--;
         $noun = $numberOfBottles === 1 ? 'bottle' : 'bottles';
+        $numberOfBottles = $numberOfBottles < 0 ? 99 : $numberOfBottles;
         $numberOfBottles = $numberOfBottles === 0 ? 'no more' : $numberOfBottles;
-        return "Take one down and pass it around, {$numberOfBottles} {$noun} of beer on the wall.";
+        return "$intro, {$numberOfBottles} {$noun} of beer on the wall.";
     }
 
     public function getVerse(): array
