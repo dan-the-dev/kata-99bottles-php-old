@@ -6,23 +6,22 @@ class Song99Bottles
 {
     public function getVerseFirstLine(int $numberOfBottles): string
     {
-        if ($numberOfBottles === 0){
-            return 'No more bottles of beer on the wall, no more bottles of beer.';
-        }
+        $numberOfBottles = $numberOfBottles === 0 ? 'No more' : $numberOfBottles;
         $noun = $numberOfBottles === 1 ? 'bottle' : 'bottles';
-        return "{$numberOfBottles} {$noun} of beer on the wall, {$numberOfBottles} {$noun} of beer.";
+        return "{$numberOfBottles} {$noun} of beer on the wall, " . strtolower($numberOfBottles) . " {$noun} of beer.";
     }
 
-    public function getVerseSecondLine(): string
+    public function getVerseSecondLine(int $numberOfBottles): string
     {
-        return 'Take one down and pass it around, 98 bottles of beer on the wall.';
+        $numberOfBottles--;
+        return "Take one down and pass it around, {$numberOfBottles} bottles of beer on the wall.";
     }
 
     public function getVerse(): array
     {
         return [
             $this->getVerseFirstLine(99),
-            $this->getVerseSecondLine(),
+            $this->getVerseSecondLine(99),
         ];
     }
 }

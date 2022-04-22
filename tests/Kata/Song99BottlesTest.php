@@ -65,7 +65,23 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             'Take one down and pass it around, 98 bottles of beer on the wall.',
-            $this->song99Bottles->getVerseSecondLine()
+            $this->song99Bottles->getVerseSecondLine(99)
+        );
+    }
+
+    public function test98BottlesVerseSecondLine(): void
+    {
+        $this->assertEquals(
+            'Take one down and pass it around, 97 bottles of beer on the wall.',
+            $this->song99Bottles->getVerseSecondLine(98)
+        );
+    }
+
+    public function test97BottlesVerseSecondLine(): void
+    {
+        $this->assertEquals(
+            'Take one down and pass it around, 96 bottles of beer on the wall.',
+            $this->song99Bottles->getVerseSecondLine(97)
         );
     }
 
