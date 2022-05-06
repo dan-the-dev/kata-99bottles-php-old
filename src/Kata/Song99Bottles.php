@@ -21,11 +21,14 @@ class Song99Bottles
         return "$intro, {$numberOfBottles} {$noun} of beer on the wall.";
     }
 
-    public function getVerse(): array
+    /**
+     * @return array<string>
+     */
+    public function getVerse(int $verseNumber): array
     {
         return [
-            $this->getVerseFirstLine(99),
-            $this->getVerseSecondLine(99),
+            $this->getVerseFirstLine($verseNumber),
+            $this->getVerseSecondLine($verseNumber),
         ];
     }
 
