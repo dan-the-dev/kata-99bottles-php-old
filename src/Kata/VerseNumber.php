@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Kata;
 
-final class BottlesNumber
+final class VerseNumber
 {
     private int $value;
 

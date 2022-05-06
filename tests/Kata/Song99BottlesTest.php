@@ -17,7 +17,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             '99 bottles of beer on the wall, 99 bottles of beer.',
-            $this->song99Bottles->getVerseFirstLine(new BottlesNumber(99))
+            $this->song99Bottles->getVerseFirstLine(new VerseNumber(99))
         );
     }
 
@@ -25,7 +25,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             '98 bottles of beer on the wall, 98 bottles of beer.',
-            $this->song99Bottles->getVerseFirstLine(new BottlesNumber(98))
+            $this->song99Bottles->getVerseFirstLine(new VerseNumber(98))
         );
     }
 
@@ -33,7 +33,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             '97 bottles of beer on the wall, 97 bottles of beer.',
-            $this->song99Bottles->getVerseFirstLine(new BottlesNumber(97))
+            $this->song99Bottles->getVerseFirstLine(new VerseNumber(97))
         );
     }
 
@@ -41,7 +41,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             '2 bottles of beer on the wall, 2 bottles of beer.',
-            $this->song99Bottles->getVerseFirstLine(new BottlesNumber(2))
+            $this->song99Bottles->getVerseFirstLine(new VerseNumber(2))
         );
     }
 
@@ -49,7 +49,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             '1 bottle of beer on the wall, 1 bottle of beer.',
-            $this->song99Bottles->getVerseFirstLine(new BottlesNumber(1))
+            $this->song99Bottles->getVerseFirstLine(new VerseNumber(1))
         );
     }
 
@@ -57,7 +57,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             'No more bottles of beer on the wall, no more bottles of beer.',
-            $this->song99Bottles->getVerseFirstLine(new BottlesNumber(0))
+            $this->song99Bottles->getVerseFirstLine(new VerseNumber(0))
         );
     }
 
@@ -65,7 +65,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             'Take one down and pass it around, 98 bottles of beer on the wall.',
-            $this->song99Bottles->getVerseSecondLine(new BottlesNumber(99))
+            $this->song99Bottles->getVerseSecondLine(new VerseNumber(99))
         );
     }
 
@@ -73,7 +73,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             'Take one down and pass it around, 97 bottles of beer on the wall.',
-            $this->song99Bottles->getVerseSecondLine(new BottlesNumber(98))
+            $this->song99Bottles->getVerseSecondLine(new VerseNumber(98))
         );
     }
 
@@ -81,7 +81,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             'Take one down and pass it around, 96 bottles of beer on the wall.',
-            $this->song99Bottles->getVerseSecondLine(new BottlesNumber(97))
+            $this->song99Bottles->getVerseSecondLine(new VerseNumber(97))
         );
     }
 
@@ -89,7 +89,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             'Take one down and pass it around, 2 bottles of beer on the wall.',
-            $this->song99Bottles->getVerseSecondLine(new BottlesNumber(3))
+            $this->song99Bottles->getVerseSecondLine(new VerseNumber(3))
         );
     }
 
@@ -97,7 +97,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             'Take one down and pass it around, 1 bottle of beer on the wall.',
-            $this->song99Bottles->getVerseSecondLine(new BottlesNumber(2))
+            $this->song99Bottles->getVerseSecondLine(new VerseNumber(2))
         );
     }
 
@@ -105,7 +105,7 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             'Take one down and pass it around, no more bottles of beer on the wall.',
-            $this->song99Bottles->getVerseSecondLine(new BottlesNumber(1))
+            $this->song99Bottles->getVerseSecondLine(new VerseNumber(1))
         );
     }
 
@@ -113,29 +113,31 @@ class Song99BottlesTest extends TestCase
     {
         $this->assertEquals(
             'Go to the store and buy some more, 99 bottles of beer on the wall.',
-            $this->song99Bottles->getVerseSecondLine(new BottlesNumber(0))
+            $this->song99Bottles->getVerseSecondLine(new VerseNumber(0))
         );
     }
 
     public function test99BottlesVerseComplete(): void
     {
+        $verse = $this->song99Bottles->getVerse(new VerseNumber(99));
         $this->assertEquals(
             [
                 '99 bottles of beer on the wall, 99 bottles of beer.',
                 'Take one down and pass it around, 98 bottles of beer on the wall.',
             ],
-            $this->song99Bottles->getVerse(new BottlesNumber(99))
+            $verse->verseStructure()
         );
     }
 
     public function test0BottleVerseComplete(): void
     {
+        $verse = $this->song99Bottles->getVerse(new VerseNumber(0));
         $this->assertEquals(
             [
                 'No more bottles of beer on the wall, no more bottles of beer.',
                 'Go to the store and buy some more, 99 bottles of beer on the wall.',
             ],
-            $this->song99Bottles->getVerse(new BottlesNumber(0))
+            $verse->verseStructure()
         );
     }
 

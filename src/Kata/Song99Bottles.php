@@ -4,18 +4,18 @@ namespace Kata;
 
 class Song99Bottles
 {
-    public function getVerseFirstLine(BottlesNumber $bottlesNumber): string
+    public function getVerseFirstLine(VerseNumber $bottlesNumber): string
     {
         $noun = $this->getBottlesNoun($bottlesNumber->getValue());
         $numberOfBottles = $this->getNumberOfBottlesString($bottlesNumber->getValue());
         return ucfirst("{$numberOfBottles} {$noun} of beer on the wall, {$numberOfBottles} {$noun} of beer.");
     }
 
-    public function getVerseSecondLine(BottlesNumber $bottlesNumber): string
+    public function getVerseSecondLine(VerseNumber $bottlesNumber): string
     {
         $numberOfBottles = $bottlesNumber->getValue();
         $intro = $this->getIntroFromBottlesNumber($numberOfBottles);
-        $decreasedBottlesNumber = new BottlesNumber($numberOfBottles-1);
+        $decreasedBottlesNumber = new VerseNumber($numberOfBottles-1);
         $decreasedNumberOfBottles = $decreasedBottlesNumber->getValue();
         $noun = $this->getBottlesNoun($decreasedNumberOfBottles);
         $decreasedNumberOfBottles = $this->restartFrom99IfNegative($decreasedNumberOfBottles);
@@ -23,15 +23,9 @@ class Song99Bottles
         return "$intro, {$decreasedNumberOfBottles} {$noun} of beer on the wall.";
     }
 
-    /**
-     * @return array<string>
-     */
-    public function getVerse(BottlesNumber $bottlesNumber): array
+    public function getVerse(VerseNumber $verseNumber): Verse
     {
-        return [
-            $this->getVerseFirstLine($bottlesNumber),
-            $this->getVerseSecondLine($bottlesNumber),
-        ];
+        return new Verse($this->getVerseFirstLine($verseNumber), $this->getVerseSecondLine($verseNumber));
     }
 
     /** @return array<string> */
@@ -39,7 +33,8 @@ class Song99Bottles
     {
         $song = [];
         for ($bottles=99; $bottles>=0; $bottles--) {
-            $song = array_merge($song, $this->getVerse(new BottlesNumber($bottles)));
+            $verse = $this->getVerse(new VerseNumber($bottles));
+            $song = array_merge($song, $verse->verseStructure());
         }
         return $song;
     }
