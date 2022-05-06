@@ -26,11 +26,11 @@ class Song99Bottles
     /**
      * @return array<string>
      */
-    public function getVerse(int $verseNumber): array
+    public function getVerse(BottlesNumber $bottlesNumber): array
     {
         return [
-            $this->getVerseFirstLine(new BottlesNumber($verseNumber)),
-            $this->getVerseSecondLine(new BottlesNumber($verseNumber)),
+            $this->getVerseFirstLine($bottlesNumber),
+            $this->getVerseSecondLine($bottlesNumber),
         ];
     }
 
@@ -39,7 +39,7 @@ class Song99Bottles
     {
         $song = [];
         for ($bottles=99; $bottles>=0; $bottles--) {
-            $song = array_merge($song, $this->getVerse($bottles));
+            $song = array_merge($song, $this->getVerse(new BottlesNumber($bottles)));
         }
         return $song;
     }
