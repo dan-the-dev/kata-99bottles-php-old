@@ -36,8 +36,8 @@ class Song99Bottles
     public function getFullSong(): array
     {
         $song = [];
-        for ($x=99; $x>=0; $x--) {
-            $song = array_merge($song, $this->getVerse($x));
+        for ($bottles=99; $bottles>=0; $bottles--) {
+            $song = array_merge($song, $this->getVerse($bottles));
         }
         return $song;
     }
