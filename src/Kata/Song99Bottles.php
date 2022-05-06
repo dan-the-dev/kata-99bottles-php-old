@@ -15,11 +15,12 @@ class Song99Bottles
     {
         $numberOfBottles = $bottlesNumber->getValue();
         $intro = $this->getIntroFromBottlesNumber($numberOfBottles);
-        $numberOfBottles--;
-        $noun = $this->getBottlesNoun($numberOfBottles);
-        $numberOfBottles = $this->restartFrom99IfNegative($numberOfBottles);
-        $numberOfBottles = $this->getNumberOfBottlesString($numberOfBottles);
-        return "$intro, {$numberOfBottles} {$noun} of beer on the wall.";
+        $decreasedBottlesNumber = new BottlesNumber($numberOfBottles-1);
+        $decreasedNumberOfBottles = $decreasedBottlesNumber->getValue();
+        $noun = $this->getBottlesNoun($decreasedNumberOfBottles);
+        $decreasedNumberOfBottles = $this->restartFrom99IfNegative($decreasedNumberOfBottles);
+        $decreasedNumberOfBottles = $this->getNumberOfBottlesString($decreasedNumberOfBottles);
+        return "$intro, {$decreasedNumberOfBottles} {$noun} of beer on the wall.";
     }
 
     /**
