@@ -32,6 +32,16 @@ class Song99Bottles
         ];
     }
 
+    /** @return array<string> */
+    public function getFullSong(): array
+    {
+        $song = [];
+        for ($x=99; $x>=0; $x--) {
+            $song = array_merge($song, $this->getVerse($x));
+        }
+        return $song;
+    }
+
     /**
      * @param int $numberOfBottles
      * @return string
