@@ -4,10 +4,10 @@ namespace Kata;
 
 class Song99Bottles
 {
-    public function getVerseFirstLine(int $numberOfBottles): string
+    public function getVerseFirstLine(BottlesNumber $bottlesNumber): string
     {
-        $noun = $this->getBottlesNoun($numberOfBottles);
-        $numberOfBottles = $this->getNumberOfBottlesString($numberOfBottles);
+        $noun = $this->getBottlesNoun($bottlesNumber->getValue());
+        $numberOfBottles = $this->getNumberOfBottlesString($bottlesNumber->getValue());
         return ucfirst("{$numberOfBottles} {$noun} of beer on the wall, {$numberOfBottles} {$noun} of beer.");
     }
 
@@ -27,7 +27,7 @@ class Song99Bottles
     public function getVerse(int $verseNumber): array
     {
         return [
-            $this->getVerseFirstLine($verseNumber),
+            $this->getVerseFirstLine(new BottlesNumber($verseNumber)),
             $this->getVerseSecondLine($verseNumber),
         ];
     }
