@@ -11,8 +11,9 @@ class Song99Bottles
         return ucfirst("{$numberOfBottles} {$noun} of beer on the wall, {$numberOfBottles} {$noun} of beer.");
     }
 
-    public function getVerseSecondLine(int $numberOfBottles): string
+    public function getVerseSecondLine(BottlesNumber $bottlesNumber): string
     {
+        $numberOfBottles = $bottlesNumber->getValue();
         $intro = $this->getIntroFromBottlesNumber($numberOfBottles);
         $numberOfBottles--;
         $noun = $this->getBottlesNoun($numberOfBottles);
@@ -28,7 +29,7 @@ class Song99Bottles
     {
         return [
             $this->getVerseFirstLine(new BottlesNumber($verseNumber)),
-            $this->getVerseSecondLine($verseNumber),
+            $this->getVerseSecondLine(new BottlesNumber($verseNumber)),
         ];
     }
 
