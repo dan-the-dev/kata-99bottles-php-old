@@ -18,4 +18,10 @@ class Song99BottlesTest extends TestCase
         $verse = $this->song99Bottles->verse(99);
         $this->assertEquals('99 bottles of beer on the wall, 99 bottles of beer. Take one down and pass it around, 98 bottles of beer on the wall.', $verse);
     }
+
+    public function testVerse98(): void
+    {
+        $verse = $this->song99Bottles->verse(98);
+        $this->assertEquals('98 bottles of beer on the wall, 98 bottles of beer. Take one down and pass it around, 97 bottles of beer on the wall.', $verse);
+    }
 }
