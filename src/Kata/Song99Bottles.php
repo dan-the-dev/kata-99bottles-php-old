@@ -4,9 +4,9 @@ namespace Kata;
 
 class Song99Bottles
 {
-    public function verse(BottleNumber $bottleNumber): string
+    public function verse(BottleNumber $bottleNumber): Verse
     {
-        $bottlesNumberSubOne = $bottleNumber->value - 1;
-        return "{$bottleNumber->value} bottles of beer on the wall, {$bottleNumber->value} bottles of beer. Take one down and pass it around, $bottlesNumberSubOne bottles of beer on the wall.";
+        $bottlesNumberSubOne = $bottleNumber->removeBottle();
+        return new Verse("$bottleNumber bottles of beer on the wall, $bottleNumber bottles of beer. Take one down and pass it around, $bottlesNumberSubOne bottles of beer on the wall.");
     }
 }
