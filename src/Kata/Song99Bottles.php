@@ -4,9 +4,9 @@ namespace Kata;
 
 class Song99Bottles
 {
-    public function verse(BottleNumber $bottleNumber): Verse
+    public function calculateVerseFromCurrentBottleNumber(BottleNumber $currentBottleNumber): Verse
     {
-        $bottlesNumberSubOne = $bottleNumber->removeBottle();
-        return new Verse("$bottleNumber bottles of beer on the wall, $bottleNumber bottles of beer. Take one down and pass it around, $bottlesNumberSubOne bottles of beer on the wall.");
+        $futureBottleNumber = $currentBottleNumber->removeBottle();
+        return new Verse("$currentBottleNumber bottles of beer on the wall, $currentBottleNumber bottles of beer. Take one down and pass it around, $futureBottleNumber bottles of beer on the wall.");
     }
 }
