@@ -6,14 +6,7 @@ class Song99Bottles
 {
     public function verse(int $verseNumber): string
     {
-        if ($verseNumber === 97) {
-            return '97 bottles of beer on the wall, 97 bottles of beer. Take one down and pass it around, 96 bottles of beer on the wall.';
-        }
-
-        if ($verseNumber === 98) {
-            return '98 bottles of beer on the wall, 98 bottles of beer. Take one down and pass it around, 97 bottles of beer on the wall.';
-        }
-
-        return '99 bottles of beer on the wall, 99 bottles of beer. Take one down and pass it around, 98 bottles of beer on the wall.';
+        $verseNumberSubOne = $verseNumber - 1;
+        return "$verseNumber bottles of beer on the wall, $verseNumber bottles of beer. Take one down and pass it around, {$verseNumberSubOne} bottles of beer on the wall.";
     }
 }
