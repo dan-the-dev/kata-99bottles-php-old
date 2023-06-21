@@ -20,6 +20,11 @@ readonly class Verse
             return;
         }
 
+        if ($currentBottleNumber->noMoreBottlesLeft()) {
+            $this->value = "No more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall.";
+            return;
+        }
+
         $this->value = "$currentBottleNumber bottles of beer on the wall, $currentBottleNumber bottles of beer. Take one down and pass it around, $futureBottleNumber bottles of beer on the wall.";
     }
 }

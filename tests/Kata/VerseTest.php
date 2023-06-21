@@ -41,4 +41,11 @@ class VerseTest extends TestCase
         $expectedVerse = '1 bottle of beer on the wall, 1 bottle of beer. Take one down and pass it around, no more bottles of beer on the wall.';
         $this->assertEquals($expectedVerse, $verse->value);
     }
+
+    public function testVerse0(): void
+    {
+        $verse = new Verse(new BottleNumber(0));
+        $expectedVerse = 'No more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall.';
+        $this->assertEquals($expectedVerse, $verse->value);
+    }
 }

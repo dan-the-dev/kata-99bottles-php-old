@@ -28,6 +28,11 @@ readonly class BottleNumber
         return $this->equalsTo(new BottleNumber(1));
     }
 
+    public function noMoreBottlesLeft(): bool
+    {
+        return $this->equalsTo(new BottleNumber(0));
+    }
+
     private function equalsTo(BottleNumber $anotherBottleNumber): bool
     {
         return $this->value === $anotherBottleNumber->value;
