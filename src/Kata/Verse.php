@@ -16,12 +16,12 @@ readonly class Verse
         }
 
         if ($currentBottleNumber->only1BottlesLeft()) {
-            $this->value = "$currentBottleNumber bottle of beer on the wall, $currentBottleNumber bottle of beer. Take one down and pass it around, no more bottles of beer on the wall.";
+            $this->value = "$currentBottleNumber bottle of beer on the wall, $currentBottleNumber bottle of beer. Take one down and pass it around, $futureBottleNumber bottles of beer on the wall.";
             return;
         }
 
         if ($currentBottleNumber->noMoreBottlesLeft()) {
-            $this->value = "No more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall.";
+            $this->value = ucfirst("$currentBottleNumber bottles of beer on the wall, $currentBottleNumber bottles of beer. Go to the store and buy some more, $futureBottleNumber bottles of beer on the wall.");
             return;
         }
 

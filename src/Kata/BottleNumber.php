@@ -10,11 +10,15 @@ readonly class BottleNumber
 
     public function removeBottle(): BottleNumber
     {
+        if ($this->noMoreBottlesLeft()) return new BottleNumber(99);
+
         return new BottleNumber($this->value-1);
     }
 
     public function __toString(): string
     {
+        if ($this->noMoreBottlesLeft()) return "no more";
+
         return "$this->value";
     }
 
