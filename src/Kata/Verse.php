@@ -8,7 +8,7 @@ readonly class Verse
 
     public function __construct(BottleNumber $currentBottleNumber)
     {
-        $futureBottleNumber = $currentBottleNumber->removeBottle();
+        $futureBottleNumber = $this->removeBottle($currentBottleNumber);
 
         if ($currentBottleNumber->only2BottlesLeft()) {
             $this->value = "$currentBottleNumber bottles of beer on the wall, $currentBottleNumber bottles of beer. Take one down and pass it around, $futureBottleNumber bottle of beer on the wall.";
@@ -26,5 +26,12 @@ readonly class Verse
         }
 
         $this->value = "$currentBottleNumber bottles of beer on the wall, $currentBottleNumber bottles of beer. Take one down and pass it around, $futureBottleNumber bottles of beer on the wall.";
+    }
+
+    public function removeBottle(BottleNumber $bottleNumber): BottleNumber
+    {
+        if ($bottleNumber->noMoreBottlesLeft()) return new BottleNumber(99);
+
+        return new BottleNumber($bottleNumber->value - 1);
     }
 }
